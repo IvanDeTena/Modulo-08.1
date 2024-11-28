@@ -14,7 +14,14 @@ console.log(obtenPacientesAsignadosAPediatriaYMenorDeDiezAnios(pacientes));
 
 // Apartado 2
 imprimirMensajeConEstilo("Apartado 2: Protocolo de urgencia");
-console.log("Protocolo " + (pacientes.some((p) => p.temperatura > 39 && p.frecuenciaCardiaca > 100) ? "activado" : "no activado"));
+let protocoloActivado = false;
+for (let i = 0; i < pacientes.length; i++) {
+  if (pacientes[i].temperatura > 39 && pacientes[i].frecuenciaCardiaca > 100) {
+    protocoloActivado = true;
+    break;
+  }
+}
+console.log("Protocolo " + (protocoloActivado ? "activado" : "no activado"));
 
 // Apartado 3
 imprimirMensajeConEstilo("Apartado 3: Reasignación de pacientes");

@@ -7,7 +7,14 @@ export const imprimirMensajeConEstilo = (mensaje: string): void => {
 
 // Notifica si un médico de pediatría tiene pacientes asignados
 export const verificarYNotificarPediatra = (pacientes: Pacientes[]): void => {
-  const tienePacientesDePediatria = pacientes.some((paciente) => paciente.especialidad === "Pediatra");
+  let tienePacientesDePediatria = false;
+  for (let i = 0; i < pacientes.length; i++) {
+    if (pacientes[i].especialidad === "Pediatra") {
+      tienePacientesDePediatria = true;
+      break;
+    }
+  }
+
   console.log(
     tienePacientesDePediatria 
       ? "El médico no puede irse a casa, tiene pacientes asignados." 
